@@ -22,6 +22,13 @@ function solution(board, moves) {
                 }
                 break;
             }
+            /* if가 여기있으면 안돼는 이유
+            if (basket[basket.length - 1] == basket[basket.length - 2]) {
+                    answer += 2;
+                    basket.splice(basket.length-2, 2);
+                }
+            만약 basket이 비어있는 상태에서 또 비어있으면 코드가 돌아감
+            */
         }
         
     }
