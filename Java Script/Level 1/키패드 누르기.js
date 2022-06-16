@@ -1,10 +1,10 @@
 function solution(numbers, hand) {
     var answer = '';
-    let center_dial = [2, 5, 8, 0]; // 가운데 버튼 위치는 층으로만 표기 맨 위가 0층
+    let center_dial = [2, 5, 8, 0]; // 다이얼의 가운데 버튼의 열은 고정, 배열의 위치 = 행의 위치
     let key;
-    let left_floor = [3, 0]; // 초기 위치 맨 아래
-    let right_floor = [3, 0]; // 초기 위치 맨 아래
-    let center_loc = [0, 0];
+    let left_floor = [3, 0]; // "*"의 위치
+    let right_floor = [3, 0]; // "#"의 위치, 거리는 절댓값으로 구하기 때문에 열의 위치는 보기 쉽게 0으로 지정
+    let center_loc = [0, 0]; // 가운데 버튼을 누르면 값이 들어감
     let l_distance = 0;
     let r_distance = 0;
     
@@ -26,6 +26,7 @@ function solution(numbers, hand) {
             else if (key == 6) {right_floor = [1, 0];}
             else if (key == 9) {right_floor = [2, 0];}
         }
+        // 가운데 버튼이 눌릴 경우
         else {
             for (let j=0; j<4; j++) {
                 if (center_dial[j] == key) {
@@ -56,7 +57,6 @@ function solution(numbers, hand) {
                 }
             }
         }
-        console.log("왼 " + left_floor + " 오 " + right_floor + " 거리 : " + distance);
     }
     
     return answer;
