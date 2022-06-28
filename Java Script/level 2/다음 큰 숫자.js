@@ -13,7 +13,7 @@ function solution(n) {
         }
     }
   
-    // 이진수에서 1의 개수가 같아지는 수가 나올 때까지 n을 1씩 올리면서 이진수로 바꿔서 1의 개수를 구함
+    // 이진수에서 1의 개수가 같아지는 수가 나올 때까지 n을 1씩 올리면서 이진수로 바꿔서 1의 개수를 세고 answer에 n 
     while(lrg_count != sml_count) {
         lrg_count = 0;
         n++;
