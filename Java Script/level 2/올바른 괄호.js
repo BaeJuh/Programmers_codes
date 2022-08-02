@@ -28,3 +28,29 @@ function solution(s){
     
     return op == cl; // 열린 괄호 닫힌 괄호 개수가 같음
 }
+
+
+function solution(s){
+    var answer = true;
+    let op = 0; // 열림
+    let cl = 0; // 닫힘
+    let open = true;
+    
+    // 위와 같은데 위 if 문 2개가 필요 없음
+    
+    for (let i=0; i<s.length; i++) {
+        if (s[i] == "(") {
+            op ++;
+            open = true;
+        }
+        if (s[i] == ")") {
+            cl ++;
+            open = false;
+        }
+        if (op == cl && open == true) {
+            return false;
+        }
+    }
+    
+    return op == cl;
+}
