@@ -29,11 +29,12 @@ function SetSearch(data) {
         document.getElementsByClassName('App')[0].appendChild(list);
     }
         let ul = document.createElement("ul");
+        list.appendChild(ul);
 
         for (let i=0; i<data.length; i++) {
             console.log(data[i]);
-            ul.innerHTML = `<li>${i+1}  ${data[i]}</li>`;
-            list.appendChild(ul);
+            ul.innerHTML += `<li>${data[i]}</li>`;
+            
         }
 }
 
