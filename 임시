@@ -2,17 +2,20 @@ let key = '';
 let url = "https://wr4a6p937i.execute-api.ap-northeast-2.amazonaws.com/dev/languages?keyword=";
 
 function InputChange(e) {
-    key = e.value;
+    if (document.getElementById("list")) {
+        document.getElementById('list').remove();
+    }
     
+    key = e.value;
+
     let x = fetch(url + key)
         .then((response) => response.json())
         .then((data) => {
+            
             if (data.length > 0) {
                 SetSearch(data);
             }
-            else {
-                document.getElementById('list').remove();
-            }
+            
         });
     
 }
@@ -29,7 +32,7 @@ function SetSearch(data) {
 
         for (let i=0; i<data.length; i++) {
             console.log(data[i]);
-            ul.innerHTML = `<li>${data[i]}</li>`;
+            ul.innerHTML = `<li>${i+1}  ${data[i]}</li>`;
             list.appendChild(ul);
         }
 }
