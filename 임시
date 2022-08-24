@@ -1,0 +1,69 @@
+let key = '';
+let url = "https://wr4a6p937i.execute-api.ap-northeast-2.amazonaws.com/dev/languages?keyword=";
+
+function InputChange(e) {
+    key = e.value;
+    
+    let x = fetch(url + key)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.length > 0) {
+                SetSearch(data);
+            }
+            else {
+                document.getElementById('list').remove();
+            }
+        });
+    
+}
+
+function SetSearch(data) {
+    if (!document.getElementById("list")) {
+        let list = document.createElement("div");
+        list.setAttribute('id', 'list');
+        list.setAttribute('class', "Suggestion");
+
+        document.getElementsByClassName('App')[0].appendChild(list);
+    }
+        let ul = document.createElement("ul");
+
+        for (let i=0; i<data.length; i++) {
+            console.log(data[i]);
+            ul.innerHTML = `<li>${data[i]}</li>`;
+            list.appendChild(ul);
+        }
+}
+
+
+
+<html>
+  <head>
+    <title>2022 FE 데브매칭</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <main class="App">
+      <div class="SelectedLanguage">
+        <ul>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Elixir</li>
+          <li>Java</li>
+          <li>PHP</li>
+        </ul>
+      </div>
+      <form class="SearchInput">
+        <input class="SearchInput__input" onkeyup="InputChange(this)" type="text" placeholder="프로그램 언어를 입력하세요." value="Script">
+      </form>
+      <div class="Suggestion" id="list">
+        <ul>
+          <li class="Suggestion__item--selected">Action<span class="Suggestion__item--matched">Script</span></li>
+          <li>Java<span class="Suggestion__item--matched">Script</span></li>
+          <li>Type<span class="Suggestion__item--matched">Script</span></li>
+          <li>Pure<span class="Suggestion__item--matched">Script</span></li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
