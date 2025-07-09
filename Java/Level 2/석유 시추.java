@@ -48,7 +48,7 @@ public class Oil {
         }
 
         return answer;
-    }
+    } // 정확도 100% 효율성 0%
 
 //    [
 //            [0, 0, 0, 1, 1, 1, 0, 0],
