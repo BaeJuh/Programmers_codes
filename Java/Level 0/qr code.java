@@ -1,4 +1,5 @@
-public String solution(int q, int r, String code) {
+public class QrCode {
+    public String solution(int q, int r, String code) {
         String answer = "";
 
         for (int i = r; i < code.length(); i += q) {
@@ -7,3 +8,4 @@ public String solution(int q, int r, String code) {
 
         return answer;
     }
+}
